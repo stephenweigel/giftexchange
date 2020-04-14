@@ -1,0 +1,10 @@
+form {
+    width: 40vw;
+    margin: 1em auto;
+}
+form .removeName {
+    cursor: pointer;
+}
+form .getPairingsButton {
+    margin-top: 1em;
+}

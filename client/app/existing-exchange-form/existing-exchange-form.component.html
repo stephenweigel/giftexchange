@@ -1,0 +1,13 @@
+<form class="existing-exchange-form text-center" [formGroup]="form" (ngSubmit)="findExchange()">
+    <div class="form-group">
+        <input
+            formControlName="exchangeId"
+            #exchangeId
+            type="text"
+            class="form-control"
+            (keyup.enter)="findExchange()"
+            placeholder="Exchange Id" />
+
+        <button type="submit" class="btn btn-outline-secondary">Find Exchange</button>
+    </div>
+</form>
