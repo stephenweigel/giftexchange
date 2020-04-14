@@ -5,7 +5,7 @@
     "dev:api": "NODE_ENV=dev nodemon server.js",
     "dev:client": "ng serve",
     "ng": "ng",
-    "start": "ng serve",
+    "start": "NODE_ENV=prod node server.js",
     "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
