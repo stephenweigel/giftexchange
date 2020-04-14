@@ -1,4 +1,5 @@
 export const environment = {
   production: true,
-  baseUrl: 'https://gift-exchange-beta.herokuapp.com'
+  clientBaseUrl: 'https://gift-exchange-beta.herokuapp.com',
+  apiBaseUrl: 'https://gift-exchange-beta.herokuapp.com',
 };

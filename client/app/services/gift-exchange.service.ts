@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from '../../environments/environment';
 
 export interface PairsResponse {
     pairs: string[];
@@ -12,7 +13,7 @@ export interface PairsResponse {
     providedIn: 'root'
 })
 export class GiftExchangeService {
-    private url = 'http://localhost:3000/api/v1/list';
+    private url = `${environment.apiBaseUrl}/api/v1/list`;
 
     constructor(private http: HttpClient) { }
 
