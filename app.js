@@ -1,31 +1,60 @@
-require('dotenv').config();
-
+"use strict";
+exports.__esModule = true;
+var path = require("path");
+var bodyParser = require("body-parser");
+var moment = require("moment");
 var express = require('express');
-var app = express();
-var path = require('path');
-
-var config = require('./config/config');
-
-if (config.environmentName === 'development') {
-    var cors = require('cors');
-    var corsOptions = {
-        origin: true,
-        optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204,
-        credentials: true,
+// Allowed extensions list can be extended depending on your own needs
+var allowedExt = [
+    '.js',
+    '.ico',
+    '.css',
+    '.png',
+    '.jpg',
+    '.woff2',
+    '.woff',
+    '.ttf',
+    '.svg',
+];
+var Server = /** @class */ (function () {
+    function Server() {
+        var _this = this;
+        this.port = process.env.PORT || 3000;
+        // Create expressjs application
+        this.app = express();
+        // Route our backend calls
+        this.app.get('/api', function (req, res) { return res.json({ application: 'Reibo collection' }); });
+        // Redirect all the other resquests
+        this.app.get('*', function (req, res) {
+            if (allowedExt.filter(function (ext) { return req.url.indexOf(ext) > 0; }).length > 0) {
+                res.sendFile(path.resolve("dist/" + req.url));
+            }
+            else {
+                res.sendFile(path.resolve('dist/index.html'));
+            }
+        });
+        // Depending on your own needs, this can be extended
+        this.app.use(bodyParser.json({ limit: '50mb' }));
+        this.app.use(bodyParser.raw({ limit: '50mb' }));
+        this.app.use(bodyParser.text({ limit: '50mb' }));
+        this.app.use(bodyParser.urlencoded({
+            limit: '50mb',
+            extended: true
+        }));
+        // Start the server on the provided port
+        this.app.listen(this.port, function () { return console.log("http is started " + _this.port); });
+        // Catch errors
+        this.app.on('error', function (error) {
+            console.error(moment().format(), 'ERROR', error);
+        });
+        process.on('uncaughtException', function (error) {
+            console.log(moment().format(), error);
+        });
+    }
+    Server.bootstrap = function () {
+        return new Server();
     };
-    app.use(cors(corsOptions));
-}
-
-app.use(express.json()); // to support JSON-encoded bodies
-app.use(express.urlencoded({ extended: false })); // to support URL-encoded bodies
-
-
-
-app.use('/', express.static(path.join(__dirname, 'src', 'dist')));
-app.use('/*', (req, res) => {
-    res.sendFile(
-        path.join(__dirname + 'src', 'dist', 'index.html')
-    );
-});
-
-module.exports = app;
+    return Server;
+}());
+var server = Server.bootstrap();
+exports["default"] = server.app;

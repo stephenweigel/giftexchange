@@ -4,8 +4,7 @@
 
 export const environment = {
     production: false,
-    clientBaseUrl: 'http://localhost:4200',
-    apiBaseUrl: 'http://localhost:3000',
+    baseUrl: 'http://localhost:4200',
     firebase: {
         apiKey: 'AIzaSyBeop5evbJMYGdBRRKtRwxwwPcvaqfJEXc',
         authDomain: 'weigeldev-api.firebaseapp.com',

@@ -21,7 +21,7 @@ export class CopyCurrentUrlButtonComponent {
     }
 
     copyCurrentUrl(): void {
-        this.clipboard.copy(`${environment.clientBaseUrl}${this.location.path()}`);
+        this.clipboard.copy(`${environment.baseUrl}${this.location.path()}`);
         this.snackBar.openFromComponent(CopyCurrentUrlPopupComponent, {
             duration: this.durationInSeconds * 1000,
         });
