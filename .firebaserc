@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "weigeldev-api": {
+      "hosting": {
+        "giftexchange": [
+          "weigeldev-api"
+        ]
+      }
+    }
+  }
+}

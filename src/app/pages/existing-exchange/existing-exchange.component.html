@@ -1,0 +1,31 @@
+<div class='header'>
+    <h1>Exchange Details <small *ngIf="pairs" class='text-muted'>{{displayName}} </small></h1>
+</div>
+
+<div *ngIf="pairs?.length; else findExchange" class="pairs">
+    <div class="new-exchange-div">
+        <app-copy-current-url-button fromComponent="this" text="Share Exchange"></app-copy-current-url-button>
+        <button routerLink="/new" class='btn btn-sm btn-secondary'>New Exchange</button>
+    </div>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Giver</th>
+                <th scope="col">Reciever</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let pair of pairs">
+                <td>{{pair[0]}}</td>
+                <td>{{pair[1]}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<ng-template #findExchange >
+    <p>
+        Enter your Exchange Id retrieve the pairings.
+    </p>
+    <app-existing-exchange-form></app-existing-exchange-form>
+</ng-template>
