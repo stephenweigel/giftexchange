@@ -1,0 +1,8 @@
+<div class="header">
+    <h1>My Exchanges</h1>
+</div>
+
+<div class="exchanges-container">
+    <app-exchange-card *ngFor="let exchange of exchanges" [exchange]="exchange" (deleteExchange)="deleteExchange($event)"></app-exchange-card>
+</div>
+

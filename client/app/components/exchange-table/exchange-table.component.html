@@ -1,0 +1,14 @@
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Giver</th>
+            <th scope="col">Reciever</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let pair of pairs">
+            <td>{{pair[0]}}</td>
+            <td>{{pair[1]}}</td>
+        </tr>
+    </tbody>
+</table>

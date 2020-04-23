@@ -3,10 +3,21 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false,
-  clientBaseUrl: 'http://localhost:4200',
-  apiBaseUrl: 'http://localhost:3000',
+    production: false,
+    clientBaseUrl: 'http://localhost:4200',
+    apiBaseUrl: 'http://localhost:3000',
+    firebase: {
+        apiKey: 'AIzaSyBeop5evbJMYGdBRRKtRwxwwPcvaqfJEXc',
+        authDomain: 'weigeldev-api.firebaseapp.com',
+        databaseURL: 'https://weigeldev-api.firebaseio.com',
+        projectId: 'weigeldev-api',
+        storageBucket: 'weigeldev-api.appspot.com',
+        messagingSenderId: '740119853603',
+        appId: '1:740119853603:web:035dc8a060ddaf1ad3cf96',
+        measurementId: 'G-9QSR6EXQNR'
+    }
 };
+
 
 /*
  * For easier debugging in development mode, you can import the following file
