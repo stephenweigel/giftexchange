@@ -2,7 +2,7 @@ import { AuthService } from '../../services/auth/auth.service';
 import { GiftExchangeService } from '../../services/gift-exchange/gift-exchange.service';
 import { Component, Output, EventEmitter, OnInit } from '@angular/core';
 import { FormGroup, FormArray, FormControl } from '@angular/forms';
-import { User } from 'client/app/interfaces/user.interface';
+import { User } from 'src/app/interfaces/user.interface';
 
 @Component({
   selector: 'app-new-exchange-form',

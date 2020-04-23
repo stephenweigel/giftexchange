@@ -1,5 +1,5 @@
 <div class='header'>
-    <h1>Exchange Details <small *ngIf="pairs" class='text-muted'>ID: {{exchangeId}} </small></h1>
+    <h1>Exchange Details <small *ngIf="pairs" class='text-muted'>{{displayName}} </small></h1>
 </div>
 
 <div *ngIf="pairs?.length; else findExchange" class="pairs">

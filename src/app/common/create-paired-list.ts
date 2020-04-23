@@ -1,5 +1,5 @@
 import { shuffleArray } from './shuffle-array';
-import { PairedList } from 'client/app/interfaces/paired-list.interface';
+import { PairedList } from 'src/app/interfaces/paired-list.interface';
 
 
 

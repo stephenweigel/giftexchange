@@ -2,7 +2,7 @@
   "hosting": [
     {
       "target": "giftexchange",
-      "public": "client/dist",
+      "public": "src/dist",
       "ignore": [
         "firebase.json",
         "**/.*",

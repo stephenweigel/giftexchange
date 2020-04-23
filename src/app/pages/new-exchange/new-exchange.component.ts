@@ -1,7 +1,7 @@
-import { User } from './../../interfaces/user.interface';
+import { User } from '../../interfaces/user.interface';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from 'client/app/services/auth/auth.service';
+import { AuthService } from 'src/app/services/auth/auth.service';
 
 @Component({
   selector: 'app-new-exchange',

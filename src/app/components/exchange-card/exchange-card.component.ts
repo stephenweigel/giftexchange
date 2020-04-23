@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { GiftExchangePairs } from 'client/app/interfaces/gift-exchange-pairs.interface';
+import { GiftExchangePairs } from 'src/app/interfaces/gift-exchange-pairs.interface';
 
 @Component({
   selector: 'app-exchange-card',

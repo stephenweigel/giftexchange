@@ -1,11 +1,11 @@
-import { AuthService } from './../auth/auth.service';
-import { createPairedList } from '../../../../lib/create-paired-list';
+import { AuthService } from '../auth/auth.service';
+import { createPairedList } from '../../common/create-paired-list';
 import { Injectable } from '@angular/core';
 import { AngularFirestoreDocument, AngularFirestore } from '@angular/fire/firestore';
 import { GiftExchangePairs, GiftExchangePairsJSON } from '../../interfaces/gift-exchange-pairs.interface';
 import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
-import { StorePairsResponse } from 'client/app/interfaces/store-pairs-response.interface';
+import { StorePairsResponse } from 'src/app/interfaces/store-pairs-response.interface';
 
 
 @Injectable({
@@ -51,12 +51,13 @@ export class GiftExchangeService {
                 .doc(id)
                 .get()
                 .subscribe(doc => {
-                    const { pairs, originalList, shared } = doc.data();
+                    const { pairs, originalList, shared, displayName } = doc.data();
                     const processedData: GiftExchangePairs = {
                         id,
                         shared,
                         pairs: JSON.parse(pairs),
                         originalList: JSON.parse(originalList),
+                        displayName
                     };
                     return resolve(processedData);
                 },

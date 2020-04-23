@@ -1,7 +1,7 @@
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { GiftExchangeService } from '../../services/gift-exchange/gift-exchange.service';
 import { Component, OnInit } from '@angular/core';
-import { GiftExchangePairs } from 'client/app/interfaces/gift-exchange-pairs.interface';
+import { GiftExchangePairs } from 'src/app/interfaces/gift-exchange-pairs.interface';
 
 @Component({
   selector: 'app-my-exchanges',

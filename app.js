@@ -19,20 +19,12 @@ if (config.environmentName === 'development') {
 app.use(express.json()); // to support JSON-encoded bodies
 app.use(express.urlencoded({ extended: false })); // to support URL-encoded bodies
 
-// Routes
-app.use('*', (req, res, next) => {
-    if (typeof req.options === 'undefined') req.options = {};
-    next();
-});
 
-// API
-app.use('/api', require('./api'));
 
-// Client
-app.use('/', express.static(path.join(__dirname, 'client', 'dist')));
+app.use('/', express.static(path.join(__dirname, 'src', 'dist')));
 app.use('/*', (req, res) => {
     res.sendFile(
-        path.join(__dirname + 'client', 'dist', 'index.html')
+        path.join(__dirname + 'src', 'dist', 'index.html')
     );
 });
 
