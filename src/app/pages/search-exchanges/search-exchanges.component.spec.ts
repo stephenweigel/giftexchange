@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NavComponent } from './nav.component';
+import { SearchExchangesComponent } from './search-exchanges.component';
 
-describe('NavComponent', () => {
-  let component: NavComponent;
-  let fixture: ComponentFixture<NavComponent>;
+describe('SearchExchangesComponent', () => {
+  let component: SearchExchangesComponent;
+  let fixture: ComponentFixture<SearchExchangesComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ NavComponent ]
+      declarations: [ SearchExchangesComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(NavComponent);
+    fixture = TestBed.createComponent(SearchExchangesComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

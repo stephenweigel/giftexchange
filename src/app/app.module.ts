@@ -10,7 +10,6 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { NewExchangeFormComponent } from './components/new-exchange-form/new-exchange-form.component';
 import { HomeComponent } from './pages/home/home.component';
 import { ExistingExchangeFormComponent } from './components/existing-exchange-form/existing-exchange-form.component';
-import { NavComponent } from './components/nav/nav.component';
 import { CopyCurrentUrlButtonComponent } from './components/copy-current-url-button/copy-current-url-button.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -32,6 +31,7 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
+import { SearchExchangesComponent } from './pages/search-exchanges/search-exchanges.component';
 
 
 @NgModule({
@@ -41,13 +41,13 @@ import { MatListModule } from '@angular/material/list';
     ExistingExchangeComponent,
     HomeComponent,
     ExistingExchangeFormComponent,
-    NavComponent,
     CopyCurrentUrlButtonComponent,
     NewExchangeComponent,
     MyExchangesComponent,
     ExchangeCardComponent,
     ExchangeTableComponent,
     NavigationComponent,
+    SearchExchangesComponent,
   ],
   imports: [
     BrowserModule,

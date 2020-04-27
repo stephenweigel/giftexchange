@@ -27,7 +27,7 @@ export class NewExchangeComponent implements OnInit {
     }
 
     redirectToExchange(id) {
-        this.router.navigate([`/exchange/${id}`]);
+        this.router.navigate([`/exchanges/${id}`]);
     }
 
 }

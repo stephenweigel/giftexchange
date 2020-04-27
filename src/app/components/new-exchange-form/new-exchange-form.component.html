@@ -6,7 +6,7 @@
         type="text"
         class="form-control"
         formControlName="displayName"
-        placeholder="Exchange Name"
+        placeholder="Exchange Name (Required)"
     />
     </div>
     <div class="input-group">
@@ -15,10 +15,12 @@
             type="text"
             class="form-control"
             (keyup.enter)="addName(name)"
-            placeholder="Participant Name">
+            placeholder="Participant Name"
+            formArrayName="names"
+            >
         <div class="input-group-append">
             <button (click)="addName(name)" type="button" class="btn btn-outline-secondary">+</button>
-            <button [disabled]="!validNames" type="button" class="btn btn-outline-secondary" (click)="processForm($event)">Get Pairings</button>
+            <button [disabled]="!form.valid" type="button" class="btn btn-outline-secondary" (click)="processForm($event)">Get Pairings</button>
         </div>
     </div>
     

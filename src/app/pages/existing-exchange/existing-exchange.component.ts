@@ -13,6 +13,7 @@ import { ActivatedRoute } from '@angular/router';
 export class ExistingExchangeComponent implements OnInit {
     exchangeId: string;
     displayName: string;
+    shared: boolean;
     pairs: string[];
 
     constructor(
@@ -26,12 +27,14 @@ export class ExistingExchangeComponent implements OnInit {
         if (exchangeId) {
             this.exchangeId = exchangeId;
             this.service.getPairs(exchangeId)
-                .then(({ pairs, displayName }) => {
+                .then(({ pairs, displayName, shared }) => {
                     this.pairs = pairs;
                     this.displayName = displayName;
+                    this.shared = shared;
                 })
                 .catch(err => {
                     /* TODO: Add Error Logging */
+                    console.log('error: ', err);
                     this.snackBar.open('Exchange not found.', 'Dismiss');
                 });
         }

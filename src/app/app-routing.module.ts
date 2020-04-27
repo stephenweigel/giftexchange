@@ -1,3 +1,4 @@
+import { SearchExchangesComponent } from './pages/search-exchanges/search-exchanges.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
@@ -13,21 +14,21 @@ const routes: Routes = [
         component: HomeComponent
     },
     {
-        path: 'new',
+        path: 'exchanges/new',
         component: NewExchangeComponent
     },
     {
-        path: 'exchange/list',
+        path: 'exchanges/search',
+        component: SearchExchangesComponent
+    },
+    {
+        path: 'exchanges/:exchangeId',
+        component: ExistingExchangeComponent
+    },
+    {
+        path: 'exchanges',
         component: MyExchangesComponent,
         canActivate: [AuthGuard]
-    },
-    {
-        path: 'exchange/:exchangeId',
-        component: ExistingExchangeComponent
-    },
-    {
-        path: 'exchange',
-        component: ExistingExchangeComponent
     },
 ];
 
