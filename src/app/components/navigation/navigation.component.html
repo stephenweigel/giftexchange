@@ -1,14 +1,14 @@
 <mat-sidenav-container class="sidenav-container">
   <mat-sidenav #drawer class="sidenav" fixedInViewport
-      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
-      [mode]="(isHandset$ | async) ? 'over' : 'side'"
-      [opened]="(isHandset$ | async) === false"
-      [ngClass]="{'hidden': !(isHandset$ | async)}"
+      [attr.role]="(isTablet$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isTablet$ | async) ? 'over' : 'side'"
+      [opened]="(isTablet$ | async) === false"
+      [ngClass]="{'hidden': !(isTablet$ | async)}"
       >
     <mat-toolbar>Menu</mat-toolbar>
     <mat-nav-list>
         <a mat-list-item routerLink="/exchanges/new">New Exchange</a>
-        <a mat-list-item routerLink="/exchanges">My Exchanges</a>
+        <a mat-list-item routerLink="/exchanges" *ngIf="auth.user$ | async as user">My Exchanges</a>
         <a mat-list-item routerLink="/exchanges/search">Find an Exchange</a>
 
         <span class="authentication" *ngIf="auth.user$ | async as user; else showLoginShelf">
@@ -35,13 +35,14 @@
         aria-label="Toggle sidenav"
         mat-icon-button
         (click)="drawer.toggle()"
-        *ngIf="isHandset$ | async">
+        *ngIf="isTablet$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
       
-      <span>Gift Exchange</span>
-
-      <div class="links" [ngClass]="{'hidden': (isHandset$ | async)}">
+      <!-- <span>Gift Exchange</span> -->
+      <span routerLink="/" class="home-link">Gift Exchange</span>
+      
+      <div class="links" [ngClass]="{'hidden': (isTablet$ | async)}">
         <button mat-button routerLink="/exchanges/new">New Exchange</button>
         <button mat-button routerLink="/exchanges" *ngIf="auth.user$ | async as user">My Exchanges</button>
         <button mat-button routerLink="/exchanges/search">Find an Exchange</button>

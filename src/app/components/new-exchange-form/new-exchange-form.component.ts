@@ -1,8 +1,10 @@
 import { AuthService } from '../../services/auth/auth.service';
 import { GiftExchangeService } from '../../services/gift-exchange/gift-exchange.service';
 import { Component, Output, EventEmitter, OnInit } from '@angular/core';
-import { FormGroup, FormArray, FormControl } from '@angular/forms';
+import { FormGroup, FormArray, FormControl, Validators } from '@angular/forms';
 import { User } from 'src/app/interfaces/user.interface';
+import { formArrayEvenLengthValidator } from '../../validators/form-array-even-length.validator';
+import { formArrayLengthValidator } from '../../validators/form-array-length.validator';
 
 @Component({
   selector: 'app-new-exchange-form',
@@ -20,13 +22,17 @@ export class NewExchangeFormComponent implements OnInit {
         private authService: AuthService
     ){
         this.form = new FormGroup({
-            displayName: new FormControl(''),
-            names: new FormArray([])
+            names: new FormArray([], [formArrayEvenLengthValidator(), formArrayLengthValidator(2)])
         });
     }
 
     ngOnInit() {
-        this.authService.user$.subscribe(user => this.user = user);
+        this.authService.user$.subscribe(user => {
+            this.user = user;
+            if (user) {
+                (this.form as FormGroup).addControl('displayName', new FormControl('', [Validators.required]));
+            }
+        });
     }
 
 
@@ -68,13 +74,6 @@ export class NewExchangeFormComponent implements OnInit {
     }
 
     get displayName() {
-
-        return this.form.get('displayName');
+        return this.form.get('displayName') as FormControl;
     }
-
-    get validNames() {
-        if (this.names.length === 0) { return false; }
-        return this.names.length % 2 === 0 ? true : false;
-    }
-
 }
