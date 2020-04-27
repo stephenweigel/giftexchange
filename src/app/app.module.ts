@@ -32,6 +32,7 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
+import { SearchExchangesComponent } from './pages/search-exchanges/search-exchanges.component';
 
 
 @NgModule({
@@ -48,6 +49,7 @@ import { MatListModule } from '@angular/material/list';
     ExchangeCardComponent,
     ExchangeTableComponent,
     NavigationComponent,
+    SearchExchangesComponent,
   ],
   imports: [
     BrowserModule,

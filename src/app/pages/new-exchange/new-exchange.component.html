@@ -9,8 +9,9 @@
     </p>
     <app-new-exchange-form *ngIf="!pairs" (pairsGenerated)="displayPairs($event)" (pairsSaved)="redirectToExchange($event)"></app-new-exchange-form>
     <div class="unsaved-exchange" *ngIf="pairs">
-        <app-exchange-table [pairs]="pairs"></app-exchange-table>
-        <button mat-raised-button color="accent" (click)="clearPairs()">Create New Exchange</button>
+        <div class="container">
+            <app-exchange-table [pairs]="pairs"></app-exchange-table>
+            <button mat-raised-button color="accent" (click)="clearPairs()">Create New Exchange</button>
+        </div>
     </div>
-    
 </section>

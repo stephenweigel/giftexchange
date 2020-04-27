@@ -45,9 +45,10 @@ export class GiftExchangeService {
         });
     }
 
-    getPairs(id: string): Promise<GiftExchangePairs> {
+    getPairs(id: string, auth: AuthService = this.authService): Promise<GiftExchangePairs> {
         return new Promise((resolve, reject) => {
-            this.afs.collection('gift-exchange')
+            auth.user$.subscribe(user => {
+                this.afs.collection('gift-exchange')
                 .doc(id)
                 .get()
                 .subscribe(doc => {
@@ -62,6 +63,8 @@ export class GiftExchangeService {
                     return resolve(processedData);
                 },
                 err => reject(err));
+            });
+
         });
     }
 

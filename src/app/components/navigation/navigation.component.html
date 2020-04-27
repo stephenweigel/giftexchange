@@ -7,11 +7,25 @@
       >
     <mat-toolbar>Menu</mat-toolbar>
     <mat-nav-list>
-        <button mat-button routerLink="/new">New Exchange</button>
-        <button mat-button routerLink="/exchange/list">My Exchanges</button>
-        <button mat-button routerLink="/exchange">Find an Exchange</button>
+        <a mat-list-item routerLink="/exchanges/new">New Exchange</a>
+        <a mat-list-item routerLink="/exchanges">My Exchanges</a>
+        <a mat-list-item routerLink="/exchanges/search">Find an Exchange</a>
 
-        <button mat-button (click)="auth.googleSignIn()">Log in with Google</button>
+        <span class="authentication" *ngIf="auth.user$ | async as user; else showLoginShelf">
+            <a mat-list-item
+            (click)="auth.signOut()"
+            >
+                Log out
+            </a>
+        </span>
+        <ng-template #showLoginShelf>
+            <a 
+                mat-list-item
+                (click)="auth.googleSignIn()"
+            >
+                Log in with Google
+            </a>
+        </ng-template>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
@@ -28,25 +42,15 @@
       <span>Gift Exchange</span>
 
       <div class="links" [ngClass]="{'hidden': (isHandset$ | async)}">
-        <button mat-button routerLink="/new">New Exchange</button>
-        <button mat-button routerLink="/exchange/list" *ngIf="auth.user$ | async as user">My Exchanges</button>
-        <button mat-button routerLink="/exchange">Find an Exchange</button>
+        <button mat-button routerLink="/exchanges/new">New Exchange</button>
+        <button mat-button routerLink="/exchanges" *ngIf="auth.user$ | async as user">My Exchanges</button>
+        <button mat-button routerLink="/exchanges/search">Find an Exchange</button>
         
         <span class="authentication" *ngIf="auth.user$ | async as user; else showLogin">
-            <button
-            mat-button
-            (click)="auth.signOut()"
-            >
-                Log out ({{user.displayName}})
-            </button>
+            <button mat-button (click)="auth.signOut()" >Log out ({{user.displayName}})</button>
         </span>
-        <ng-template #showLogin>
-            <button
-            mat-button
-            (click)="auth.googleSignIn()"
-            >
-                Log in with Google
-            </button>
+        <ng-template  #showLogin>
+            <button mat-button (click)="auth.googleSignIn()">Log in with Google</button>
         </ng-template>
       </div>
     </mat-toolbar>

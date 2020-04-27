@@ -18,7 +18,7 @@ export class ExistingExchangeFormComponent {
 
     findExchange(): void {
         if (this.exchangeId.errors !== null) { return; }
-        this.router.navigate([`/exchange/${this.exchangeId.value}`]);
+        this.router.navigate([`/exchanges/${this.exchangeId.value}`]);
         this.exchangeId.setValue('');
     }
 
