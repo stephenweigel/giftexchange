@@ -1,11 +1,11 @@
 <section class="new-exchange">
     <h1>New Gift Exchange</h1>
     <p>
-        To create a new gift exchange, enter the particpants below and click "Get Pairings".
+        To create a new gift exchange, enter at least four particpants below and click "Get Pairings".
     </p>
     <p *ngIf="!user">Log in to save your exchanges and view your existing exchanges.</p>
     <p>
-        Note: The list must contain an even number of names to make sure everyone is matched up.
+        Note: The list must contain an even number of names to ensure everyone is matched up.
     </p>
     <app-new-exchange-form *ngIf="!pairs" (pairsGenerated)="displayPairs($event)" (pairsSaved)="redirectToExchange($event)"></app-new-exchange-form>
     <div class="unsaved-exchange" *ngIf="pairs">

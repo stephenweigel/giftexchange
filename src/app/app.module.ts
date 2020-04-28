@@ -17,6 +17,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { Overlay } from '@angular/cdk/overlay';
 import { NewExchangeComponent } from './pages/new-exchange/new-exchange.component';
 import { AngularFireModule } from '@angular/fire';
@@ -66,7 +67,8 @@ import { SearchExchangesComponent } from './pages/search-exchanges/search-exchan
     MatToolbarModule,
     MatSidenavModule,
     MatIconModule,
-    MatListModule
+    MatListModule,
+    MatSlideToggleModule
   ],
   providers: [
     GiftExchangeService,

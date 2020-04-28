@@ -3,7 +3,6 @@ import { Clipboard } from '@angular/cdk/clipboard';
 import { Location } from '@angular/common';
 import { environment } from '../../../environments/environment';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { CopyCurrentUrlPopupComponent } from './copy-current-url-popup.component';
 
 @Component({
     selector: 'app-copy-current-url-button',
@@ -22,8 +21,10 @@ export class CopyCurrentUrlButtonComponent {
 
     copyCurrentUrl(): void {
         this.clipboard.copy(`${environment.baseUrl}${this.location.path()}`);
-        this.snackBar.openFromComponent(CopyCurrentUrlPopupComponent, {
+        this.snackBar.open('Copied URL to clipboard.', 'Dismiss', {
             duration: this.durationInSeconds * 1000,
+            horizontalPosition: 'right',
+            verticalPosition: 'top'
         });
     }
 }

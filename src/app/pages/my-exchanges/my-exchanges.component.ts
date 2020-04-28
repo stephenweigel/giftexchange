@@ -35,6 +35,10 @@ export class MyExchangesComponent implements OnInit {
     }
 
     private displayMessage(message): void {
-        this.snackBar.open(message, 'Dismiss', { duration: 2000 });
+        this.snackBar.open(message, 'Dismiss', {
+            duration: 2000,
+            horizontalPosition: 'right',
+            verticalPosition: 'top'
+        });
     }
 }
