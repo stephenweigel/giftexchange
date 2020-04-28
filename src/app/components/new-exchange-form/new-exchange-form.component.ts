@@ -22,7 +22,7 @@ export class NewExchangeFormComponent implements OnInit {
         private authService: AuthService
     ){
         this.form = new FormGroup({
-            names: new FormArray([], [formArrayEvenLengthValidator(), formArrayLengthValidator(2)])
+            names: new FormArray([], [formArrayEvenLengthValidator(), formArrayLengthValidator(4)])
         });
     }
 

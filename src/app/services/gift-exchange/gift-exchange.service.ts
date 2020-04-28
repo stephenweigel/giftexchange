@@ -68,6 +68,18 @@ export class GiftExchangeService {
         });
     }
 
+    toggleShared(id: string, currentSharedStatus: boolean): Promise<boolean> {
+        return new Promise((resolve, reject) => {
+            this.afs.collection('gift-exchange')
+                .doc(id)
+                .set({
+                    shared: !currentSharedStatus
+                }, { merge: true })
+                .then(() => resolve(!currentSharedStatus))
+                .catch((err) => reject(err));
+        });
+    }
+
     delete(id: string): Promise<boolean> {
         return new Promise((resolve, reject) => {
             this.afs.collection('gift-exchange')
